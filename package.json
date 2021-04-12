@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "description": "A drag and drop sandbox editor for material-ui components",
   "private": true,
-  "homepage": "https://creative.github.io/material-sandbox/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
