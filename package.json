@@ -1,6 +1,7 @@
 {
   "name": "material-sandbox",
   "version": "0.1.0",
+  "description": "A drag and drop sandbox editor for material-ui components",
   "private": true,
   "homepage": "https://creative.github.io/material-sandbox/",
   "dependencies": {
