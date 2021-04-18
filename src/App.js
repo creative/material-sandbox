@@ -20,26 +20,24 @@ function App() {
             Material Sandbox
           </Typography>
           <Tooltip title="Github Repository">
-          <Link 
-            href="https://github.com/creative/material-sandbox" 
-            color="inherit" 
-            target="_blank"
-            rel="noopener"
-          >
-            <GitHubIcon />
-          </Link>
+            <Link
+              href="https://github.com/creative/material-sandbox"
+              color="inherit"
+              target="_blank"
+              rel="noopener"
+            >
+              <GitHubIcon />
+            </Link>
           </Tooltip>
         </Toolbar>
-      </AppBar>      
+      </AppBar>
       <div className={cx('main')}>
         <Paper className={cx('left')} variant="outlined" square>
           Left
         </Paper>
         <Container className={cx('middle')}>
           <Paper square variant="outlined" className={cx('canvas')}>
-            <div>
-              Canvas
-            </div>
+            Canvas
           </Paper>
         </Container>
         <Paper className={cx('right')} variant="outlined" square>
