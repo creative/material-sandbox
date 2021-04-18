@@ -1,11 +1,13 @@
 import classNames from 'classnames/bind';
 import styles from './App.module.scss';
 import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
+import Container from '@material-ui/core/Container';
 import GitHubIcon from '@material-ui/icons/GitHub';
+import Link from '@material-ui/core/Link';
+import Paper from '@material-ui/core/Paper';
+import Toolbar from '@material-ui/core/Toolbar';
 import Tooltip from '@material-ui/core/Tooltip';
+import Typography from '@material-ui/core/Typography';
 
 var cx = classNames.bind(styles);
 
@@ -18,21 +20,29 @@ function App() {
             Material Sandbox
           </Typography>
           <Tooltip title="Github Repository">
-          <Link 
-            href="https://github.com/creative/material-sandbox" 
-            color="inherit" 
-            target="_blank"
-            rel="noopener"
-          >
-            <GitHubIcon />
-          </Link>
+            <Link
+              href="https://github.com/creative/material-sandbox"
+              color="inherit"
+              target="_blank"
+              rel="noopener"
+            >
+              <GitHubIcon />
+            </Link>
           </Tooltip>
         </Toolbar>
-      </AppBar>      
+      </AppBar>
       <div className={cx('main')}>
-        <div className={cx('left')}>Side</div>
-        <div className={cx('middle')}>Middle</div>
-        <div className={cx('right')}>Side</div>
+        <Paper className={cx('left')} variant="outlined" square>
+          Left
+        </Paper>
+        <Container className={cx('middle')}>
+          <Paper square variant="outlined" className={cx('canvas')}>
+            Canvas
+          </Paper>
+        </Container>
+        <Paper className={cx('right')} variant="outlined" square>
+          Right
+        </Paper>
       </div>
     </div>
   );
