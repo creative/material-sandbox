@@ -1,0 +1,37 @@
+:global {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }  
+}
+
+:local {
+  .application {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .title {
+    flex-grow: 1;
+  }
+
+  .main {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+  }
+
+  .left {
+    width: 256px;
+  }
+
+  .middle {
+    flex-grow: 1;
+  }
+
+  .right {
+    width: 256px;
+  }
+}
