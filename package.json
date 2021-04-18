@@ -15,6 +15,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
+    "typescript": "^4.2.4",
     "web-vitals": "^1.1.1"
   },
   "scripts": {
@@ -22,6 +23,7 @@
     "clean:install": "rm -rf node_nodules && npm install",
     "deploy": "gh-pages -d build",
     "eject": "react-scripts eject",
+    "lint": "eslint .",
     "predeploy": "npm run build",
     "start": "react-scripts start",
     "test": "react-scripts test"
