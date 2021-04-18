@@ -19,6 +19,7 @@
   },
   "scripts": {
     "build": "react-scripts build",
+    "clean:install": "rm -rf node_nodules && npm install",
     "deploy": "gh-pages -d build",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
