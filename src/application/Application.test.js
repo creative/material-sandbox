@@ -1,8 +1,9 @@
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import Application from './Application';
 
 test('renders learn react link', () => {
-  render(<App />);
+  render(<Application />);
+  
   const headerElement = screen.getByText(/Material Sandbox/i);
   expect(headerElement).toBeInTheDocument();
 });
