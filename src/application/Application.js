@@ -1,29 +1,43 @@
+import { useMemo, useReducer } from 'react';
+import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import classNames from 'classnames/bind';
+import ApplicationContext from '../application-context';
 import ApplicationHeader from '../application-header/ApplicationHeader';
 import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
+import reducer, { initialState } from '../reducer';
 import styles from './Application.module.scss';
 
 var cx = classNames.bind(styles);
 
 function App() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const contextValue = useMemo(() => ({ state, dispatch }), [state, dispatch]);
+
+  const { theme } = state;
+  const themeContextValue = useMemo(() => (createMuiTheme(theme)), [theme]);
+
   return (
-    <div className={cx('application')}>
-      <ApplicationHeader />
-      <div className={cx('main')}>
-        <Paper className={cx('left')} variant="outlined" square>
-          Left
-        </Paper>
-        <Container className={cx('middle')}>
-          <Paper square variant="outlined" className={cx('canvas')}>
-            Canvas
-          </Paper>
-        </Container>
-        <Paper className={cx('right')} variant="outlined" square>
-          Right
-        </Paper>
-      </div>
-    </div>
+    <ApplicationContext.Provider value={contextValue}>
+      <ThemeProvider theme={themeContextValue}>
+        <div className={cx('application')}>
+          <ApplicationHeader />
+          <div className={cx('main')}>
+            <Paper className={cx('left')} variant="outlined" square>
+              Left
+            </Paper>
+            <Container className={cx('middle')}>
+              <Paper square variant="outlined" className={cx('canvas')}>
+                Canvas
+              </Paper>
+            </Container>
+            <Paper className={cx('right')} variant="outlined" square>
+              Right
+            </Paper>
+          </div>
+        </div>
+      </ThemeProvider>
+    </ApplicationContext.Provider>
   );
 }
 
