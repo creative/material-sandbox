@@ -26,11 +26,13 @@ function App() {
             <Paper className={cx('left')} variant="outlined" square>
               Left
             </Paper>
-            <Container className={cx('middle')}>
-              <Paper square variant="outlined" className={cx('canvas')}>
-                Canvas
+            <Paper square className={cx('middle')}>
+              <Container maxWidth={false} className={cx('middle-container')}>
+                <Paper variant="outlined" className={cx('canvas')}>
+                  Canvas
               </Paper>
-            </Container>
+              </Container>
+            </Paper>
             <Paper className={cx('right')} variant="outlined" square>
               Right
             </Paper>

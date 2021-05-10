@@ -14,7 +14,6 @@
   }
 
   .canvas {
-    flex: 1 1 auto;
     height: 100%;
     overflow: auto;
   }
@@ -35,9 +34,13 @@
     display: flex;
     flex-grow: 1;
     height: 100%;
-    padding-bottom: 24px;
-    padding-top: 24px;
     overflow: hidden;
+  }
+
+  .middle-container {
+    overflow: hidden;
+    // TODO: Use the MUI spacing strategy here.
+    padding: 20px;
   }
 
   .right {
