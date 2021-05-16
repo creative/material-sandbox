@@ -1,10 +1,11 @@
 import { useMemo, useReducer } from 'react';
-import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider, createTheme } from '@material-ui/core/styles';
 import classNames from 'classnames/bind';
 import ApplicationContext from '../application-context';
 import ApplicationHeader from '../application-header/ApplicationHeader';
 import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
+import Sidebar from '../sidebar/Sidebar';
 import reducer, { initialState } from '../reducer';
 import styles from './Application.module.scss';
 
@@ -15,7 +16,7 @@ function App() {
   const contextValue = useMemo(() => ({ state, dispatch }), [state, dispatch]);
 
   const { theme } = state;
-  const themeContextValue = useMemo(() => (createMuiTheme(theme)), [theme]);
+  const themeContextValue = useMemo(() => (createTheme(theme)), [theme]);
 
   return (
     <ApplicationContext.Provider value={contextValue}>
@@ -23,9 +24,7 @@ function App() {
         <div className={cx('application')}>
           <ApplicationHeader />
           <div className={cx('main')}>
-            <Paper className={cx('left')} variant="outlined" square>
-              Left
-            </Paper>
+            <Sidebar />
             <Paper square className={cx('middle')}>
               <Container maxWidth={false} className={cx('middle-container')}>
                 <Paper variant="outlined" className={cx('canvas')}>
