@@ -1,0 +1,30 @@
+[
+  {
+    "id": "root",
+    "type": "element",
+    "value": {
+      "props": {
+        "children": {
+          "id": "children-example",
+          "type": "node",
+          "value": {}
+        }
+      }
+    }
+  },
+  {
+    "id": "bool-example",
+    "type": "bool",
+    "value": true
+  },
+  {
+    "id": "number-example",
+    "type": "number",
+    "value": 0
+  },
+  {
+    "id": "array-example",
+    "type": "array",
+    "value": []
+  }
+]

@@ -29,7 +29,7 @@ function App() {
               <Container maxWidth={false} className={cx('middle-container')}>
                 <Paper variant="outlined" className={cx('canvas')}>
                   Canvas
-              </Paper>
+                </Paper>
               </Container>
             </Paper>
             <Paper className={cx('right')} variant="outlined" square>

@@ -26,7 +26,9 @@ const Sidebar = () => (
         />
       </div>
       <div>
-        Catalog
+        <div draggable>
+          Item
+        </div>
       </div>
     </div>
   </Paper>
