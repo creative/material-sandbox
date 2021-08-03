@@ -27,9 +27,7 @@ function App() {
             <Sidebar />
             <Paper square className={cx('middle')}>
               <Container maxWidth={false} className={cx('middle-container')}>
-                <Paper variant="outlined" className={cx('canvas')}>
-                  Canvas
-                </Paper>
+                <iframe id="sandbox-iframe" src="/sandbox.html" title="sandbox" />
               </Container>
             </Paper>
             <Paper className={cx('right')} variant="outlined" square>

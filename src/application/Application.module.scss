@@ -3,43 +3,42 @@
   body,
   #root {
     height: 100%;
-  }  
+  }
+
+  #sandbox-iframe {
+    border: 1px dashed #000;
+    height: 100%;
+    width: 100%;
+  }
 }
 
-:local {
-  .application {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
+.application {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 
-  .canvas {
-    height: 100%;
-    overflow: auto;
-  }
+.main {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  overflow: hidden;
+}
 
-  .main {
-    display: flex;
-    flex-direction: row;
-    flex-grow: 1;
-    overflow: hidden;
-  }
+.middle {
+  display: flex;
+  flex-grow: 1;
+  height: 100%;
+  overflow: hidden;
+}
 
-  .middle {
-    display: flex;
-    flex-grow: 1;
-    height: 100%;
-    overflow: hidden;
-  }
+.middle-container {
+  overflow: hidden;
+  // TODO: Use the MUI spacing strategy here.
+  padding: 20px;
+}
 
-  .middle-container {
-    overflow: hidden;
-    // TODO: Use the MUI spacing strategy here.
-    padding: 20px;
-  }
-
-  .right {
-    flex: 0 0 auto;
-    width: 280px;
-  }
+.right {
+  flex: 0 0 auto;
+  width: 280px;
 }
