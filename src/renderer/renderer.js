@@ -35,8 +35,8 @@ class Renderer {
   static render(node) {
     const { type, value } = node;
 
-    if (!value) {
-      return null;
+    if (value === undefined || value === null) {
+      return value;
     }
 
     if (type === 'node' && Array.isArray(value)) {
@@ -45,15 +45,20 @@ class Renderer {
       return items.length === 1 ? items[0] : items;
     }
 
+    if (type === 'node') {
+      return Renderer.render(value);
+    }
+
     if (type === 'element') {
       return Renderer.createElement(node);
     }
 
-    if (type === 'array') {
-      return value.map((item) => Renderer.render(item));
+    if (type === 'string' || type === 'bool') {
+      return value;
     }
 
-    return value;
+
+    return null;
   }
 }
 
