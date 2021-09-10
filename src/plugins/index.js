@@ -1,7 +1,11 @@
-import Button from './button';
+import box from './box';
+import button from './button';
+import placeholder from './placeholder';
 
 const plugins = {
-  button: Button,
+  box,
+  button,
+  placeholder,
 };
 
 export default plugins;

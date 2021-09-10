@@ -2,7 +2,6 @@ import Button from '@material-ui/core/Button';
 
 const button = {
   description: 'Buttons allow users to take actions, and make choices, with a single tap.',
-  displayName: 'Button',
   elementType: Button,
   props: {
     disabled: {
@@ -13,7 +12,10 @@ const button = {
     children: {
       type: 'node',
       description: 'The content of the component.',
-      initialValue: 'Button Text'
+      initialValue: {
+        type: 'string',
+        value: 'Button Text'
+      }
     },
     color: {
       type: 'string',

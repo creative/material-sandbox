@@ -1,8 +1,8 @@
 import { v4 as uuid } from 'uuid';
 import plugins from '../plugins';
 
-const propValue = (property, parent) => {
-  const { defaultValue, initialValue } = property;
+const propValue = (property) => {
+  const { defaultValue, initialValue, placeholder, type } = property;
 
   if (initialValue) {
     return initialValue;
@@ -10,6 +10,10 @@ const propValue = (property, parent) => {
 
   if (defaultValue) {
     return defaultValue;
+  }
+
+  if (type === 'element' && placeholder) {
+    return { type: 'placeholder', props: {} };
   }
 
   return null;
