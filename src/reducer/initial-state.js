@@ -1,12 +1,14 @@
-import Tree from '../tree';
-
 const initialState = {
   theme: {
     palette: {
       mode: 'light',
     }
   },
-  sandbox: new Tree(),
+  tree: {
+    id: 'root',
+    type: 'node',
+    value: null,
+  }
 };
 
 export default initialState;

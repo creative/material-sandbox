@@ -1,0 +1,37 @@
+{
+  "theme": {
+    "palette": {
+      "mode": "light"
+    }
+  },
+  "sandbox": {
+    "root": {
+      "id": "root",
+      "parent": null,
+      "type": "node",
+      "value": [
+        {
+          "test": "test"
+        },
+        {
+          "test": "test"
+        }
+      ]
+    },
+    "cache": {
+      "root": {
+        "id": "root",
+        "parent": null,
+        "type": "node",
+        "value": [
+          {
+            "test": "test"
+          },
+          {
+            "test": "test"
+          }
+        ]
+      }
+    }
+  }
+}

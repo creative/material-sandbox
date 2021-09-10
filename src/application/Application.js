@@ -1,4 +1,4 @@
-import { useMemo, useReducer } from 'react';
+import { useEffect, useMemo, useReducer } from 'react';
 import { ThemeProvider, createTheme } from '@material-ui/core/styles';
 import classNames from 'classnames/bind';
 import ApplicationContext from '../application-context';
@@ -17,6 +17,41 @@ function App() {
 
   const { theme } = state;
   const themeContextValue = useMemo(() => (createTheme(theme)), [theme]);
+
+  useEffect(() => {
+    /**
+     * Handles messages from other windows.
+     */
+    function handleMessage(event) {
+      const { data } = event;
+      const { type, payload } = data;
+
+      switch (type) {
+        case 'SANDBOX.DISPATCH.APPEND':
+          dispatch({ type: 'APPEND', payload });
+          break;
+        case 'SANDBOX.STATE.REQUEST':
+          event.source.postMessage({ type: 'SANDBOX.STATE.UPDATE', payload: { state } });
+          break;
+        default:
+          console.log('WARNING: Unsupported message.');
+      }
+    }
+
+    // Communicate state updates to the iframe.
+    const sandbox = document.getElementById('sandbox-iframe');
+
+    if (sandbox) {
+      sandbox.contentWindow.postMessage({ type: 'SANDBOX.STATE.UPDATE', payload: { state } });
+    }
+
+    // Register events.
+    window.addEventListener('message', handleMessage);
+
+    return () => {
+      window.removeEventListener('message', handleMessage);
+    };
+  }, [state]);
 
   return (
     <ApplicationContext.Provider value={contextValue}>
