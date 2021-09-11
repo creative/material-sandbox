@@ -1,8 +1,7 @@
 import Placeholder from './Placeholder.jsx';
 
 const placeholder = {
-  hidden: true,
-  description: 'A placeholder with a drop region.',
+  private: true,
   elementType: Placeholder,
 }
 

@@ -20,10 +20,11 @@ const Canvas = () => {
      */
     function handleDrop(_event) {
       window.parent.postMessage({
-        type: 'SANDBOX.DISPATCH.APPEND',
+        type: 'SANDBOX.DISPATCH.MODIFY',
         payload: {
+          action: 'APPEND',
           target: 'root',
-          value: create('button'),
+          value: create('box'),
         }
       });
     }
@@ -55,6 +56,8 @@ const Canvas = () => {
       window.removeEventListener('message', handleMessage);
     };
   }, []);
+
+  console.log(state);
 
   return (
     <div>

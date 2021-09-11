@@ -1,12 +1,13 @@
 
 import append from './append';
-import match from './match';
-import traverse from './traverse';
+import replace from './replace';
 
 const modify = (action, tree, target, value) => {
   switch (action) {
     case 'APPEND':
-      return traverse(tree, match(target), append(value));
+      return append(tree, target, value);
+    case 'REPLACE':
+      return replace(tree, target, value);
     default:
       return tree;
   }

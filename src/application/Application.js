@@ -27,8 +27,8 @@ function App() {
       const { type, payload } = data;
 
       switch (type) {
-        case 'SANDBOX.DISPATCH.APPEND':
-          dispatch({ type: 'APPEND', payload });
+        case 'SANDBOX.DISPATCH.MODIFY':
+          dispatch({ type: 'MODIFY', payload });
           break;
         case 'SANDBOX.STATE.REQUEST':
           event.source.postMessage({ type: 'SANDBOX.STATE.UPDATE', payload: { state } });
