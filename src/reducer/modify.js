@@ -8,15 +8,22 @@ import { modify } from '../tree';
  * @returns {Object} - The updated state.
  */
 const modifyTree = (state, action) => {
-  const { tree } = state;
+  const { selected, tree } = state;
   const { payload } = action;
   const { target, value } = payload;
 
-  const selected = payload.action === 'APPEND' ? value.id : target;
+  let selectedNode = selected;
+  if (payload.action === 'APPEND') {
+    selectedNode = value.id;
+  } else if (payload.action === 'REPLACE') {
+    selectedNode = target;
+  }
+
+  // const selected = payload.action === 'APPEND' ? value.id : target;
 
   return {
     ...state,
-    selected,
+    selected: selectedNode,
     tree: modify(payload.action, tree, target, value),
   };
 };

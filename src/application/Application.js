@@ -5,6 +5,7 @@ import ApplicationContext from '../application-context';
 import ApplicationHeader from '../application-header/ApplicationHeader';
 import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
+import Editor from '../editor/Editor';
 import Sidebar from '../sidebar/Sidebar';
 import reducer, { initialState } from '../reducer';
 import styles from './Application.module.scss';
@@ -66,7 +67,7 @@ function App() {
               </Container>
             </Paper>
             <Paper className={cx('right')} variant="outlined" square>
-              {`Selected: ${state.selected}`}
+              <Editor />
             </Paper>
           </div>
         </div>
