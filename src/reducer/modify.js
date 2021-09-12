@@ -12,8 +12,11 @@ const modifyTree = (state, action) => {
   const { payload } = action;
   const { target, value } = payload;
 
+  const selected = payload.action === 'APPEND' ? value.id : target;
+
   return {
     ...state,
+    selected,
     tree: modify(payload.action, tree, target, value),
   };
 };

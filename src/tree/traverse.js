@@ -20,7 +20,7 @@ const travelElement = (node, callback) => {
 const travelNode = (node, callback) => {
   const { id, type, value } = node;
 
-  let traveledValue = null;
+  let traveledValue;
 
   if (Array.isArray(value)) {
     traveledValue = [];

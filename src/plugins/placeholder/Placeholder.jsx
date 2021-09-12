@@ -19,17 +19,20 @@ const Placeholder = (props) => {
   const handleDrop = (event) => {
     event.stopPropagation();
 
-    // Generates an example component for the specified plugin.
-    const replacement = create('box');
+    const data = event.dataTransfer.getData('SANDBOX.DATA');
 
-    window.parent.postMessage({
-      type: 'SANDBOX.DISPATCH.MODIFY',
-      payload: {
-        action: 'REPLACE',
-        target: id,
-        value: replacement
-      }
-    });
+    if (data) {
+      const { type } = JSON.parse(data);
+
+      window.parent.postMessage({
+        type: 'SANDBOX.DISPATCH.MODIFY',
+        payload: {
+          action: 'REPLACE',
+          target: id,
+          value: create(type)
+        }
+      });
+    }
   };
 
   return (

@@ -1,7 +1,7 @@
 import Placeholder from './Placeholder.jsx';
 
 const placeholder = {
-  private: true,
+  hidden: true,
   elementType: Placeholder,
 }
 

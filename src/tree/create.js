@@ -1,5 +1,7 @@
-import { v4 as uuid } from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 import plugins from '../plugins';
+
+const uuid = () => `ms-${uuidv4()}`;
 
 /**
  * Sets the prop value.
@@ -27,7 +29,7 @@ const propValue = (property) => {
     return { type: 'placeholder' };
   }
 
-  return null;
+  return undefined;
 }
 
 /**

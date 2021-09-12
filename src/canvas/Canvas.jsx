@@ -2,33 +2,45 @@ import { useEffect, useState } from 'react';
 import Renderer from '../renderer/renderer';
 import { create } from '../tree';
 
+/**
+ * Posts a message to the parent window.
+ * @param {string} type - The message type. 
+ * @param {Object} payload - The data to pass along with the message.
+ */
+function postMessage(type, payload) {
+  window.parent.postMessage({ type, payload });
+}
+
+/**
+ * Handles the drag over event.
+ * @param {Event} event - The drag over event.
+ */
+function handleDragOver(event) {
+  event.preventDefault();
+}
+
+/**
+ * Handles the drop event.
+ * @param {Event} event - The drop event.
+ */
+function handleDrop(event) {
+  const data = event.dataTransfer.getData('SANDBOX.DATA');
+
+  if (data) {
+    const { type } = JSON.parse(data);
+
+    postMessage('SANDBOX.DISPATCH.MODIFY', {
+      action: 'APPEND',
+      target: 'root',
+      value: create(type),
+    });
+  }
+}
+
 const Canvas = () => {
   const [state, setState] = useState(null);
 
   useEffect(() => {
-    /**
-     * Handles the drag over event.
-     * @param {Event} event - The drag over event.
-     */
-    function handleDragOver(event) {
-      event.preventDefault();
-    }
-
-    /**
-     * Handles the drop event.
-     * @param {Event} event - The drop event.
-     */
-    function handleDrop(_event) {
-      window.parent.postMessage({
-        type: 'SANDBOX.DISPATCH.MODIFY',
-        payload: {
-          action: 'APPEND',
-          target: 'root',
-          value: create('box'),
-        }
-      });
-    }
-
     /**
      * Handles messages from the parent window.
      * @param {Event} event - The window message event.
@@ -48,7 +60,7 @@ const Canvas = () => {
     window.addEventListener('message', handleMessage);
 
     // Request a state update on mount to populate the sandbox.
-    window.parent.postMessage({ type: 'SANDBOX.STATE.REQUEST' });
+    postMessage('SANDBOX.STATE.REQUEST');
 
     return () => {
       document.removeEventListener('dragover', handleDragOver);
@@ -56,8 +68,6 @@ const Canvas = () => {
       window.removeEventListener('message', handleMessage);
     };
   }, []);
-
-  console.log(state);
 
   return (
     <div>

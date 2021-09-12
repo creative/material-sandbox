@@ -66,7 +66,7 @@ function App() {
               </Container>
             </Paper>
             <Paper className={cx('right')} variant="outlined" square>
-              Right
+              {`Selected: ${state.selected}`}
             </Paper>
           </div>
         </div>

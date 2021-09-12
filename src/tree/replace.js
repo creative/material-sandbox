@@ -1,7 +1,6 @@
 import traverse from './traverse';
 
 const replace = (tree, target, node) => {
-  console.log('replace');
   return traverse(tree, (current) => {
     const { id } = current;
     const { type, value } = node;
