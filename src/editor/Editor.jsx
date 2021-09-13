@@ -1,7 +1,9 @@
 import { useContext } from 'react';
 import { find } from '../tree';
+import Box from '@mui/material/Box';
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import FormGroup from '@mui/material/FormGroup';
 import MenuItem from '@mui/material/MenuItem';
 import TextField from '@mui/material/TextField';
 import ApplicationContext from '../application-context';
@@ -17,8 +19,6 @@ const Editor = () => {
 
   const node = find(tree, selected);
 
-  console.log(node, selected);
-
   /**
  * Handles the change event for string properties.
  * @param {Event} event- The change event.
@@ -33,7 +33,14 @@ const Editor = () => {
 
     if (options) {
       return (
-        <TextField id={id} fullWidth select label={label} value={value} onChange={(event) => handleChange(id, event.target.value)}>
+        <TextField
+          fullWidth
+          select
+          key={id}
+          label={label}
+          onChange={(event) => handleChange(id, event.target.value)}
+          value={value}
+        >
           {options.map((option) => (
             <MenuItem key={option.value} value={option.value}>
               {option.value}
@@ -43,22 +50,22 @@ const Editor = () => {
       )
     }
 
-    return <TextField fullWidth label="Size" size="small" value={value} onChange={handleChange} />;
+    return <TextField fullWidth label={label} size="small" value={value} onChange={handleChange} />;
   }
 
   const buildBoolForm = (label, property, config) => {
     const { id, value } = property;
 
     return (
+      // <FormGroup>
       <FormControlLabel
+        key={id}
         control={
-          <Checkbox
-            onChange={(event) => handleChange(id, event.target.checked)}
-            value={value}
-          />
+          <Checkbox onChange={(event) => handleChange(id, event.target.checked)} value={value} />
         }
         label={label}
       />
+      // </FormGroup>
     )
   }
 
@@ -70,9 +77,9 @@ const Editor = () => {
     } else if (type === 'bool') {
       return buildBoolForm(name, property, propertyConfig);
     } else if (type === 'element') {
-      return <div>Element</div>;
+      return null;
     } else if (type === 'node') {
-      return <div>Node</div>;
+      return null;
     }
   }
 
@@ -101,8 +108,19 @@ const Editor = () => {
 
   return (
     <div>
-      {`Selected: ${selected}`}
-      {buildFields(node)}
+      <Box
+        component="form"
+        sx={{
+          p: 1,
+          '& .MuiTextField-root': { mt: 1, mb: 1 },
+        }}
+        noValidate
+        autoComplete="off"
+      >
+        <FormGroup>
+          {buildFields(node)}
+        </FormGroup>
+      </Box>
     </div>
   );
 };
