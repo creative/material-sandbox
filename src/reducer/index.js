@@ -1,6 +1,7 @@
 import initialState from './initial-state';
 import setThemeMode from './set-theme-mode';
 import modify from './modify';
+import select from './select';
 
 const reducer = (state, action) => {
   const { type } = action;
@@ -8,6 +9,8 @@ const reducer = (state, action) => {
   switch (type) {
     case 'MODIFY':
       return modify(state, action);
+    case 'SELECT':
+      return select(state, action);
     case 'SET_THEME_MODE':
       return setThemeMode(state, action);
     default:

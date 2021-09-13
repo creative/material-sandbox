@@ -54,7 +54,19 @@ const Canvas = () => {
       }
     }
 
+    /**
+     * Handles the click event.
+     * @param {Event} event - The click event.
+     */
+    function handleClick(event) {
+      const selection = event.target.closest('*[id^="ms-"], #root');
+      const target = selection ? selection.id : 'root';
+
+      postMessage('SANDBOX.DISPATCH.SELECT', { target });
+    };
+
     // Register events.
+    document.addEventListener('click', handleClick);
     document.addEventListener('dragover', handleDragOver);
     document.addEventListener('drop', handleDrop);
     window.addEventListener('message', handleMessage);
@@ -63,6 +75,7 @@ const Canvas = () => {
     postMessage('SANDBOX.STATE.REQUEST');
 
     return () => {
+      document.removeEventListener('click', handleClick);
       document.removeEventListener('dragover', handleDragOver);
       document.removeEventListener('drop', handleDrop);
       window.removeEventListener('message', handleMessage);
@@ -70,10 +83,9 @@ const Canvas = () => {
   }, []);
 
   return (
-    <div>
-      Canvas
+    <>
       {state && Renderer.render(state.tree)}
-    </div>
+    </>
   )
 }
 

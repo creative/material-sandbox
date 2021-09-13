@@ -17,6 +17,8 @@ const Editor = () => {
 
   const node = find(tree, selected);
 
+  console.log(node, selected);
+
   /**
  * Handles the change event for string properties.
  * @param {Event} event- The change event.
@@ -76,6 +78,11 @@ const Editor = () => {
 
   const buildFields = () => {
     const { value } = node;
+
+    if (!value) {
+      return null;
+    }
+
     const { type, props = {} } = value;
 
     const fields = [];

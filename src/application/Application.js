@@ -20,6 +20,15 @@ function App() {
   const themeContextValue = useMemo(() => (createTheme(theme)), [theme]);
 
   useEffect(() => {
+    function postUpdate() {
+      // Communicate state updates to the iframe.
+      const sandbox = document.getElementById('sandbox-iframe');
+
+      if (sandbox) {
+        sandbox.contentWindow.postMessage({ type: 'SANDBOX.STATE.UPDATE', payload: { state } });
+      }
+    }
+
     /**
      * Handles messages from other windows.
      */
@@ -32,19 +41,17 @@ function App() {
           dispatch({ type: 'MODIFY', payload });
           break;
         case 'SANDBOX.STATE.REQUEST':
-          event.source.postMessage({ type: 'SANDBOX.STATE.UPDATE', payload: { state } });
+          postUpdate();
+          break;
+        case 'SANDBOX.DISPATCH.SELECT':
+          dispatch({ type: 'SELECT', payload });
           break;
         default:
           console.log('WARNING: Unsupported message.');
       }
     }
 
-    // Communicate state updates to the iframe.
-    const sandbox = document.getElementById('sandbox-iframe');
-
-    if (sandbox) {
-      sandbox.contentWindow.postMessage({ type: 'SANDBOX.STATE.UPDATE', payload: { state } });
-    }
+    postUpdate();
 
     // Register events.
     window.addEventListener('message', handleMessage);
