@@ -9,6 +9,11 @@ import TextField from '@mui/material/TextField';
 import ApplicationContext from '../application-context';
 import plugins from '../plugins';
 
+const titleCase = (string) => {
+  const result = string.replace(/([A-Z])/g, " $1");
+  return result.charAt(0).toUpperCase() + result.slice(1);
+}
+
 const Editor = () => {
   const { dispatch, state } = useContext(ApplicationContext);
   const { selected, tree } = state;
@@ -57,7 +62,6 @@ const Editor = () => {
     const { id, value } = property;
 
     return (
-      // <FormGroup>
       <FormControlLabel
         key={id}
         control={
@@ -65,7 +69,6 @@ const Editor = () => {
         }
         label={label}
       />
-      // </FormGroup>
     )
   }
 
@@ -96,7 +99,7 @@ const Editor = () => {
     Object.keys(props).forEach((propertyName) => {
       const property = props[propertyName];
       const config = plugins[type].props[propertyName];
-      const form = buildForm(propertyName, property, config);
+      const form = buildForm(titleCase(propertyName), property, config);
 
       if (form) {
         fields.push(form);
