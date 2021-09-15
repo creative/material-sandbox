@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useReducer } from 'react';
-import { ThemeProvider, createTheme } from '@material-ui/core/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import classNames from 'classnames/bind';
 import ApplicationContext from '../application-context';
 import ApplicationHeader from '../application-header/ApplicationHeader';
-import Container from '@material-ui/core/Container';
-import Paper from '@material-ui/core/Paper';
+import Container from '@mui/material/Container';
+import Paper from '@mui/material/Paper';
 import Editor from '../editor/Editor';
 import Sidebar from '../sidebar/Sidebar';
 import reducer, { initialState } from '../reducer';

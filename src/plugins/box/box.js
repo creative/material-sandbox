@@ -1,4 +1,4 @@
-import Box from '@material-ui/core/Box';
+import Box from '@mui/material/Box';
 
 const box = {
   description: 'The Box component serves as a wrapper component for most of the CSS utility needs.',

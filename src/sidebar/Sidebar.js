@@ -1,8 +1,8 @@
 import classNames from 'classnames/bind';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import OutlinedInput from '@material-ui/core/OutlinedInput';
-import Paper from '@material-ui/core/Paper';
-import SearchIcon from '@material-ui/icons/Search';
+import InputAdornment from '@mui/material/InputAdornment';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import Paper from '@mui/material/Paper';
+import SearchIcon from '@mui/icons-material/Search';
 import plugins from '../plugins';
 import styles from './Sidebar.module.scss';
 

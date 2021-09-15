@@ -1,4 +1,4 @@
-import Button from '@material-ui/core/Button';
+import Button from '@mui/material/Button';
 
 const button = {
   description: 'Buttons allow users to take actions, and make choices, with a single tap.',
