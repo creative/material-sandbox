@@ -17,7 +17,7 @@ const propValue = (property) => {
     return type ? { id: uuid(), type, value } : initialValue;
   }
 
-  if (defaultValue) {
+  if (defaultValue !== undefined) {
     return defaultValue;
   }
 

@@ -48,7 +48,7 @@ const Editor = () => {
         >
           {options.map((option) => (
             <MenuItem key={option.value} value={option.value}>
-              {option.value}
+              {option.display || option.value}
             </MenuItem>
           ))}
         </TextField>
