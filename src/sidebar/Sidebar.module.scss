@@ -1,6 +1,21 @@
-:local {
-  .sidebar {
-    flex: 0 0 auto;
-    width: 280px;
-  }
+.sidebar {
+  flex: 0 0 auto;
+  padding: 5px;
+  width: 280px;
+}
+
+.card {
+  align-items: center;
+  cursor: grab;
+  display: flex;
+  margin-top: 5px;
+  padding: 5px;
+}
+
+.card-title {
+  margin-left: 5px;
+}
+
+.info-icon {
+  margin-left: auto;
 }
