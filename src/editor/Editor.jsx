@@ -55,7 +55,7 @@ const Editor = () => {
       )
     }
 
-    return <TextField fullWidth label={label} size="small" value={value} onChange={handleChange} />;
+    return <TextField fullWidth label={label} size="small" value={value} onChange={(event) => handleChange(id, event.target.value)} />;
   }
 
   const buildBoolForm = (label, property, config) => {
@@ -64,13 +64,30 @@ const Editor = () => {
     return (
       <FormControlLabel
         key={id}
-        control={
-          <Checkbox onChange={(event) => handleChange(id, event.target.checked)} value={value} />
-        }
+        control={<Checkbox onChange={(event) => handleChange(id, event.target.checked)} value={value} />}
         label={label}
       />
     )
   }
+
+  const buildNodeForms = (label, property, config) => {
+    const { value } = property;
+
+    if (!value) {
+      return null;
+    }
+
+    if (Array.isArray(value)) {
+      return (
+        <div>
+          <div>{label}</div>
+          {value.map((node) => buildForm('', node, {}))}
+        </div>
+      );
+    }
+
+    return <div><div>{label}</div>{buildForm('', value, {})}</div>;
+  };
 
   const buildForm = (name, property, propertyConfig) => {
     const { type } = property;
@@ -80,19 +97,14 @@ const Editor = () => {
     } else if (type === 'bool') {
       return buildBoolForm(name, property, propertyConfig);
     } else if (type === 'element') {
-      return null;
+      return <div>Element</div>;
     } else if (type === 'node') {
-      return null;
+      return buildNodeForms(name, property, propertyConfig);;
     }
   }
 
   const buildFields = () => {
     const { value } = node;
-
-    if (!value) {
-      return null;
-    }
-
     const { type, props = {} } = value;
 
     const fields = [];
@@ -111,6 +123,7 @@ const Editor = () => {
 
   return (
     <div>
+      <div>{titleCase(node.value.type)}</div>
       <Box
         component="form"
         sx={{
