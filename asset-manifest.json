@@ -3,8 +3,8 @@
     "static/js/0.9a364fec.chunk.js": "/material-sandbox/static/js/0.9a364fec.chunk.js",
     "static/js/0.9a364fec.chunk.js.map": "/material-sandbox/static/js/0.9a364fec.chunk.js.map",
     "index.css": "/material-sandbox/static/css/index.67816172.chunk.css",
-    "index.js": "/material-sandbox/static/js/index.59a32cf8.chunk.js",
-    "index.js.map": "/material-sandbox/static/js/index.59a32cf8.chunk.js.map",
+    "index.js": "/material-sandbox/static/js/index.2239bdc6.chunk.js",
+    "index.js.map": "/material-sandbox/static/js/index.2239bdc6.chunk.js.map",
     "runtime-index.js": "/material-sandbox/static/js/runtime-index.5a7e06e1.js",
     "runtime-index.js.map": "/material-sandbox/static/js/runtime-index.5a7e06e1.js.map",
     "runtime-sandbox.js": "/material-sandbox/static/js/runtime-sandbox.c0f734d5.js",
@@ -27,7 +27,7 @@
       "static/js/0.9a364fec.chunk.js",
       "static/js/5.08471e7c.chunk.js",
       "static/css/index.67816172.chunk.css",
-      "static/js/index.59a32cf8.chunk.js"
+      "static/js/index.2239bdc6.chunk.js"
     ],
     "sandbox": [
       "static/js/runtime-sandbox.c0f734d5.js",
