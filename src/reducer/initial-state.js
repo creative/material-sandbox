@@ -6,8 +6,16 @@ const initialState = {
   },
   tree: {
     id: 'root',
-    type: 'node',
-    value: null,
+    type: 'element',
+    value: {
+      type: 'workspace',
+      props: {
+        children: {
+          id: 'root-node',
+          type: 'node'
+        }
+      }
+    }
   }
 };
 

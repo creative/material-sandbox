@@ -31,7 +31,7 @@ function handleDrop(event) {
 
     postMessage('SANDBOX.DISPATCH.MODIFY', {
       action: 'APPEND',
-      target: 'root',
+      target: 'root-node',
       value: create(type),
     });
   }

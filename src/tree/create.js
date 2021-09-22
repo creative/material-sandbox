@@ -56,7 +56,7 @@ const defaultProps = (config) => {
  * @param {string} type - The element type. 
  * @returns {Object} - A node data structure.
  */
-const create = (type) => {
+const create = (type, id) => {
   const config = plugins[type];
 
   if (!config) {
@@ -64,7 +64,7 @@ const create = (type) => {
   }
 
   return {
-    id: uuid(),
+    id: id || uuid(),
     type: 'element',
     value: {
       type,
