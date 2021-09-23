@@ -6,36 +6,53 @@ import TreeView from '@mui/lab/TreeView';
 import TreeItem from '@mui/lab/TreeItem';
 import { titleCase } from '../utils';
 
+/**
+ * Creates a layer of the workspace tree.
+ * @param {Object} node - The element node. 
+ * @returns - A TreeItem for the element node.
+ */
 const renderTreeItem = (node) => {
   const { id, value } = node;
-  const { type, props = {} } = value;
+  const { type, props } = value;
 
-  const children = [];
-  Object.keys(props).forEach((prop) => {
-    const property = props[prop];
-
-    if (!property.value) {
-      return;
-    }
-
-    if (property.type === 'element') {
-      children.push(renderTreeItem(property.value));
-    } else if (property.type === 'node' && Array.isArray(property.value)) {
-      property.value.forEach((item) => {
-        if (item.type === 'element') {
-          children.push(renderTreeItem(item));
-        }
-      })
-    } else if (property.type === 'node' && property.value.type === 'element') {
-      children.push(renderTreeItem(property.value));
-    }
-  });
+  const children = renderTreeItemChildren(props);
 
   return (
     <TreeItem key={id} nodeId={id} label={titleCase(type)}>
       {children}
     </TreeItem>
   );
+};
+
+/**
+ * Iterates the properties of an element rendering layers of the workspace tree.
+ * @param {Object} props - An element properties. 
+ * @returns {array} - An array of tree layers.
+ */
+const renderTreeItemChildren = (props = {}) => {
+  const children = [];
+
+  Object.keys(props).forEach((prop) => {
+    const { type, value } = props[prop];
+
+    if (!value) {
+      return;
+    }
+
+    if (type === 'element') {
+      children.push(renderTreeItem(value));
+    } else if (type === 'node' && Array.isArray(value)) {
+      value.forEach((item) => {
+        if (item.type === 'element') {
+          children.push(renderTreeItem(item));
+        }
+      });
+    } else if (type === 'node' && value.type === 'element') {
+      children.push(renderTreeItem(value));
+    }
+  });
+
+  return children;
 };
 
 /**
