@@ -1,0 +1,1 @@
+export { default as titleCase } from './title-case';

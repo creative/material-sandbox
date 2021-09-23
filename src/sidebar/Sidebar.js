@@ -8,6 +8,7 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import Paper from '@mui/material/Paper';
 import SearchIcon from '@mui/icons-material/Search';
 import Tooltip from '@mui/material/Tooltip';
+import Layers from '../layers/Layers';
 import plugins from '../plugins';
 import styles from './Sidebar.module.scss';
 
@@ -72,6 +73,9 @@ const Sidebar = () => {
         </div>
         <div>
           {items}
+        </div>
+        <div>
+          <Layers />
         </div>
       </div>
     </Paper>
