@@ -60,7 +60,9 @@ const renderTreeItemChildren = (props = {}) => {
  */
 const Layers = () => {
   const { state, dispatch } = useContext(ApplicationContext);
-  const { tree } = state;
+  const { selected, tree } = state;
+
+  console.log(selected);
 
   /**
    * Handles tree view selections.
@@ -76,6 +78,7 @@ const Layers = () => {
       defaultCollapseIcon={<ExpandMoreIcon />}
       defaultExpandIcon={<ChevronRightIcon />}
       onNodeSelect={handleSelection}
+      selected={selected || ''}
     >
       {renderTreeItem(tree)}
     </TreeView>
