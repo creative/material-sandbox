@@ -33,7 +33,8 @@ const renderTreeItemChildren = (props = {}) => {
   const children = [];
 
   Object.keys(props).forEach((prop) => {
-    const { type, value } = props[prop];
+    const property = props[prop];
+    const { type, value } = property;
 
     if (!value) {
       return;
@@ -41,14 +42,29 @@ const renderTreeItemChildren = (props = {}) => {
 
     if (type === 'element') {
       children.push(renderTreeItem(value));
-    } else if (type === 'node' && Array.isArray(value)) {
-      value.forEach((item) => {
-        if (item.type === 'element') {
-          children.push(renderTreeItem(item));
-        }
-      });
-    } else if (type === 'node' && value.type === 'element') {
-      children.push(renderTreeItem(value));
+    } else if (type === 'node') {
+      children.push(...renderNodeChildren(property))
+    }
+  });
+
+  return children;
+};
+
+/**
+ * Iterates the node datatype rendering layers of the tree.
+ * @param {Object} node - The tree node object.
+ * @returns {array} - An array of element nodes.
+ */
+const renderNodeChildren = (node) => {
+  const { value } = node;
+
+  const children = [];
+
+  (Array.isArray(value) ? value : [value]).forEach((item) => {
+    const { type } = item;
+
+    if (type === 'element') {
+      children.push(renderTreeItem(item));
     }
   });
 
@@ -61,8 +77,6 @@ const renderTreeItemChildren = (props = {}) => {
 const Layers = () => {
   const { state, dispatch } = useContext(ApplicationContext);
   const { selected, tree } = state;
-
-  console.log(selected);
 
   /**
    * Handles tree view selections.
