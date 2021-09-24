@@ -1,11 +1,7 @@
 const Workspace = (props) => {
   const { children } = props;
 
-  return (
-    <div>
-      {children}
-    </div>
-  );
+  return <>{children}</>;
 };
 
 export default Workspace;

@@ -1,4 +1,4 @@
-import Placeholder from './Placeholder.jsx';
+import Placeholder from '../../placeholder/Placeholder';
 
 const placeholder = {
   hidden: true,

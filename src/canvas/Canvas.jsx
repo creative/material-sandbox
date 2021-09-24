@@ -20,6 +20,32 @@ function handleDragOver(event) {
 }
 
 /**
+ * Handles the drag enter event.
+ * @param {Event} event - The drag enter event.
+ */
+const handleDragEnter = (event) => {
+  event.preventDefault();
+
+  const { target } = event;
+
+  if (target.id === 'root') {
+    target.style.backgroundColor = '#ebf6fd';
+  }
+};
+
+/**
+ * Handles the drag enter event.
+ * @param {Event} event - The drag enter event.
+ */
+const handleDragLeave = (event) => {
+  const { target } = event;
+
+  if (target.id === 'root') {
+    target.style.backgroundColor = '';
+  }
+};
+
+/**
  * Handles the drop event.
  * @param {Event} event - The drop event.
  */
@@ -35,6 +61,8 @@ function handleDrop(event) {
       value: create(type),
     });
   }
+
+  document.getElementById('root').style.backgroundColor = '';
 }
 
 const Canvas = () => {
@@ -68,6 +96,8 @@ const Canvas = () => {
     // Register events.
     document.addEventListener('click', handleClick);
     document.addEventListener('dragover', handleDragOver);
+    document.addEventListener('dragenter', handleDragEnter);
+    document.addEventListener('dragleave', handleDragLeave);
     document.addEventListener('drop', handleDrop);
     window.addEventListener('message', handleMessage);
 
@@ -77,6 +107,8 @@ const Canvas = () => {
     return () => {
       document.removeEventListener('click', handleClick);
       document.removeEventListener('dragover', handleDragOver);
+      document.removeEventListener('dragenter', handleDragEnter);
+      document.removeEventListener('dragleave', handleDragLeave);
       document.removeEventListener('drop', handleDrop);
       window.removeEventListener('message', handleMessage);
     };

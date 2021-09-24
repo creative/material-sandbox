@@ -1,5 +1,9 @@
 import PropTypes from 'prop-types';
-import { create } from '../../tree';
+import classNames from 'classnames/bind';
+import { create } from '../tree';
+import styles from './Placeholder.module.scss';
+
+const cx = classNames.bind(styles);
 
 /**
  * Handles the drag over event.
@@ -7,6 +11,27 @@ import { create } from '../../tree';
  */
 const handleDragOver = (event) => {
   event.preventDefault();
+};
+
+/**
+ * Handles the drag enter event.
+ * @param {Event} event - The drag enter event.
+ */
+const handleDragEnter = (event) => {
+  event.preventDefault();
+
+  const { target } = event;
+  target.style.backgroundColor = '#ebf6fd';
+};
+
+/**
+ * Handles the drag enter event.
+ * @param {Event} event - The drag enter event.
+ */
+const handleDragLeave = (event) => {
+  const { target } = event;
+
+  target.style.backgroundColor = '';
 };
 
 const Placeholder = (props) => {
@@ -37,7 +62,10 @@ const Placeholder = (props) => {
 
   return (
     <div
+      className={cx('placeholder')}
       id={id}
+      onDragEnter={handleDragEnter}
+      onDragLeave={handleDragLeave}
       onDragOver={handleDragOver}
       onDrop={handleDrop}
     >
