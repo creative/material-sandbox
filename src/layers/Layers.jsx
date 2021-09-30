@@ -99,6 +99,7 @@ const Layers = () => {
     return children;
   };
 
+  const children = renderTreeItem(tree);
   const expanded = Array.from(nodes.current).filter((node) => (collapsed.indexOf(node) === -1));
 
   return (
@@ -110,7 +111,7 @@ const Layers = () => {
       onNodeToggle={handleNodeToggle}
       selected={selected || ''}
     >
-      {renderTreeItem(tree)}
+      {children}
     </TreeView>
   )
 };
