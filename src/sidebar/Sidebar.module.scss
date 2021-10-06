@@ -1,21 +1,16 @@
 .sidebar {
   flex: 0 0 auto;
-  padding: 5px;
   width: 280px;
 }
 
-.card {
-  align-items: center;
-  cursor: grab;
-  display: flex;
-  margin-top: 8px;
-  padding: 8px;
+.top-section {
+  height: 60%;
+  padding: 5px;
 }
 
-.card-title {
-  margin-left: 5px;
-}
-
-.info-icon {
-  margin-left: auto;
+.bottom-section {
+  border-top: 1px dashed grey;
+  height: 40%;
+  overflow: auto;
+  padding: 5px;
 }
