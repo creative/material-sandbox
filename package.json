@@ -91,7 +91,6 @@
     "start": "node scripts/start.js",
     "test": "echo 'Test disabled'"
   },
-  "eslintConfig": {
   "browserslist": {
     "production": [
       ">0.2%",
