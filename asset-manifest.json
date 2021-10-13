@@ -1,41 +1,41 @@
 {
   "files": {
-    "static/js/0.d58097a7.chunk.js": "/material-sandbox/static/js/0.d58097a7.chunk.js",
-    "static/js/0.d58097a7.chunk.js.map": "/material-sandbox/static/js/0.d58097a7.chunk.js.map",
+    "static/js/0.5169587b.chunk.js": "/material-sandbox/static/js/0.5169587b.chunk.js",
+    "static/js/0.5169587b.chunk.js.map": "/material-sandbox/static/js/0.5169587b.chunk.js.map",
     "index.css": "/material-sandbox/static/css/index.2b73c2e9.chunk.css",
-    "index.js": "/material-sandbox/static/js/index.7d3069ed.chunk.js",
-    "index.js.map": "/material-sandbox/static/js/index.7d3069ed.chunk.js.map",
+    "index.js": "/material-sandbox/static/js/index.e8f8da71.chunk.js",
+    "index.js.map": "/material-sandbox/static/js/index.e8f8da71.chunk.js.map",
     "runtime-index.js": "/material-sandbox/static/js/runtime-index.1b4018c8.js",
     "runtime-index.js.map": "/material-sandbox/static/js/runtime-index.1b4018c8.js.map",
     "runtime-sandbox.js": "/material-sandbox/static/js/runtime-sandbox.5c42a463.js",
     "runtime-sandbox.js.map": "/material-sandbox/static/js/runtime-sandbox.5c42a463.js.map",
     "sandbox.css": "/material-sandbox/static/css/sandbox.64eddbdf.chunk.css",
-    "sandbox.js": "/material-sandbox/static/js/sandbox.5d338b2f.chunk.js",
-    "sandbox.js.map": "/material-sandbox/static/js/sandbox.5d338b2f.chunk.js.map",
-    "static/js/5.f5485c2a.chunk.js": "/material-sandbox/static/js/5.f5485c2a.chunk.js",
-    "static/js/5.f5485c2a.chunk.js.map": "/material-sandbox/static/js/5.f5485c2a.chunk.js.map",
+    "sandbox.js": "/material-sandbox/static/js/sandbox.efe6aad3.chunk.js",
+    "sandbox.js.map": "/material-sandbox/static/js/sandbox.efe6aad3.chunk.js.map",
+    "static/js/5.6871f8a9.chunk.js": "/material-sandbox/static/js/5.6871f8a9.chunk.js",
+    "static/js/5.6871f8a9.chunk.js.map": "/material-sandbox/static/js/5.6871f8a9.chunk.js.map",
     "static/js/6.3fd1c48f.chunk.js": "/material-sandbox/static/js/6.3fd1c48f.chunk.js",
     "static/js/6.3fd1c48f.chunk.js.map": "/material-sandbox/static/js/6.3fd1c48f.chunk.js.map",
     "index.html": "/material-sandbox/index.html",
     "sandbox.html": "/material-sandbox/sandbox.html",
     "static/css/index.2b73c2e9.chunk.css.map": "/material-sandbox/static/css/index.2b73c2e9.chunk.css.map",
     "static/css/sandbox.64eddbdf.chunk.css.map": "/material-sandbox/static/css/sandbox.64eddbdf.chunk.css.map",
-    "static/js/0.d58097a7.chunk.js.LICENSE.txt": "/material-sandbox/static/js/0.d58097a7.chunk.js.LICENSE.txt",
-    "static/js/5.f5485c2a.chunk.js.LICENSE.txt": "/material-sandbox/static/js/5.f5485c2a.chunk.js.LICENSE.txt"
+    "static/js/0.5169587b.chunk.js.LICENSE.txt": "/material-sandbox/static/js/0.5169587b.chunk.js.LICENSE.txt",
+    "static/js/5.6871f8a9.chunk.js.LICENSE.txt": "/material-sandbox/static/js/5.6871f8a9.chunk.js.LICENSE.txt"
   },
   "entrypoints": {
     "index": [
       "static/js/runtime-index.1b4018c8.js",
-      "static/js/0.d58097a7.chunk.js",
-      "static/js/5.f5485c2a.chunk.js",
+      "static/js/0.5169587b.chunk.js",
+      "static/js/5.6871f8a9.chunk.js",
       "static/css/index.2b73c2e9.chunk.css",
-      "static/js/index.7d3069ed.chunk.js"
+      "static/js/index.e8f8da71.chunk.js"
     ],
     "sandbox": [
       "static/js/runtime-sandbox.5c42a463.js",
-      "static/js/0.d58097a7.chunk.js",
+      "static/js/0.5169587b.chunk.js",
       "static/css/sandbox.64eddbdf.chunk.css",
-      "static/js/sandbox.5d338b2f.chunk.js"
+      "static/js/sandbox.efe6aad3.chunk.js"
     ]
   }
 }
